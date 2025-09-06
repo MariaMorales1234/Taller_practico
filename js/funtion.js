@@ -61,4 +61,10 @@ function showChore() {
  document.getElementById("Contador").innerText=`Pendientes:${pending} | Completadas: ${complete}`;
 }
 
+function deletechore(i) {
+    chore.splice(i, 1);
+    saveChore();
+    showChore();
+}
 
+showChore();
