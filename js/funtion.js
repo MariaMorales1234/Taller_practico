@@ -28,41 +28,47 @@ function showChore() {
     chore.forEach((chore, i) => {
         if (!chore.description.toLowerCase().includes(filter))
             return;
-   
-
-    const li = document.createElement("li");
-    li.className = chore.complete ? "completada" : "";
 
 
-    const span = document.createElement("span");
-    span.textContent = `${chore.date}-${chore.description}`;
+        const li = document.createElement("li");
+        li.className = chore.complete ? "completada" : "";
 
-    const actions = document.createElement("div");
-    actions.className = "Accciones";
 
-    const btnComplete = document.createElement("button");
-    btnComplete.textContent = "✅";
-    btnComplete.onclick = () => completechore(i);
+        const span = document.createElement("span");
+        span.textContent = `${chore.date}-${chore.description}`;
 
-    const btndelete = document.createElement("button");
-    btndelete.textContent = "🗑️";
-    btndelete.onclick = () => deletechore(i);
+        const actions = document.createElement("div");
+        actions.className = "Accciones";
 
-    actions.appendChild(btnComplete);
-    actions.appendChild(btndelete);
+        const btnComplete = document.createElement("button");
+        btnComplete.textContent = "✅";
+        btnComplete.onclick = () => completechore(i);
 
-    li.appendChild(span);
-    li.appendChild(actions);
+        const btndelete = document.createElement("button");
+        btndelete.textContent = "🗑️";
+        btndelete.onclick = () => deletechore(i);
 
-    list.appendChild(li);
+        actions.appendChild(btnComplete);
+        actions.appendChild(btndelete);
 
-    chore.complete? complete++: pending++;
- });
- document.getElementById("Contador").innerText=`Pendientes:${pending} | Completadas: ${complete}`;
+        li.appendChild(span);
+        li.appendChild(actions);
+
+        list.appendChild(li);
+
+        chore.complete ? complete++ : pending++;
+    });
+    document.getElementById("Contador").innerText = `Pendientes:${pending} | Completadas: ${complete}`;
 }
 
 function deletechore(i) {
     chore.splice(i, 1);
+    saveChore();
+    showChore();
+}
+
+function completechore(i) {
+    chore[i].complete = !chore[i].complete;
     saveChore();
     showChore();
 }
