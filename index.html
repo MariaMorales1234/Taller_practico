@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <title>Lista de Tareas diarias</title>
     <link rel="stylesheet" href="css/historial.css">
-
 </head>
 <body>
-    
+    <div class="Titulo">
+        <h1>Lista de tareas</h1>
+    </div>
+    <div class="estructura">
+        <div class="Lista">
+            <h2>Mis tareas</h2>
+            <input type="text" id="Buscar">
+            <ul id="Lista-tarea"></ul>
+        </div>
+        <div class="formulario">
+            <form>
+                <h2>Ingrese una nueva tarea</h2>
+                <input type="date" id="fecha">
+                <textarea id="descripcion" placeholder="Descripcion de la tarea..."></textarea>
+                <button onclick="agregarTarea()">Agregar</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
