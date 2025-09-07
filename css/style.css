@@ -53,7 +53,7 @@ body {
 }
 
 .Lista h2 {
-    font-family: Exhibición Libertinus Serif;
+    font-family: Libertinus Serif Display;
     font-size: 40px;
     color: #031E42;
 }
@@ -69,6 +69,58 @@ body {
     color: #000000;
 }
 
-input::placeholder {
-    color: gray;
+.Lista input:focus {
+  border-color: #0E0E7D;
+  outline: none;      
+  background-color: #eef;
+}
+
+.container form h2 {
+    font-family: Libertinus Serif Display;
+    font-size: 35px;
+    color: #031E42;
+}
+
+.container form input {
+    width: 400px;
+    height: 30px;
+    font-size: 15px;
+    font-family: Lato;
+    border:2px solid #031E42;
+    border-radius: 8px;
+    padding-left: 12px;
+    color: #000000;
+}
+
+.container form input:focus {
+    border-color: #171773;
+    outline: none;      
+    background-color: #C7C7FF;
+}
+
+.container form textarea {
+    width: 400px;
+    height: 140px;
+    font-size: 15px;
+    font-family: Lato;
+    border:2px solid #031E42;
+    border-radius: 8px;
+    padding: 12px;
+    color: #000000;
+}
+
+.container form textarea:focus {
+    border-color: #0E0E7D;
+    outline: none;      
+    background-color: #F5F5FF;
+}
+
+.container form button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #E5E5FF;
+    font-family: Lato;
+    font-size: 15px;
+    margin: auto;
 }
