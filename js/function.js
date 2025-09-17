@@ -1,75 +1,92 @@
 let chore = JSON.parse(localStorage.getItem('chore')) || [];
+
 function aggTarea() {
-    const date = document.getElementById("date").value;
-    const description = document.getElementById("description").value.trim();
+  const date = document.getElementById("date").value;
+  const description = document.getElementById("description").value.trim();
 
-    if (!date || !description) return alert("Hay campos vacios, por favor complete");
+  if (!date || !description) {
+    alert("Hay campos vacíos, por favor complete");
+    return;
+  }
 
-    chore.push({ date, description, complete: false });
-    saveChore();
-    showChore();
-    document.getElementById("date").value = "";
-    document.getElementById("description").value = "";
+  chore.push({ date, description, complete: false });
+  saveChore();
+  showChore();
+
+  document.getElementById("date").value = "";
+  document.getElementById("description").value = "";
 }
 
 function saveChore() {
-    localStorage.setItem("chore", JSON.stringify(chore));
+  localStorage.setItem("chore", JSON.stringify(chore));
 }
 
 function showChore() {
-    const list = document.getElementById("choreList");
-    list.innerHTML = "";
-    const filter = document.getElementById("search").addEventListener("input", showChore()).value.toLowerCase();
+  const list = document.getElementById("choreList");
+  if (!list) return;
+  list.innerHTML = "";
 
-    chore.sort((a, b) => new Date(a.date) - new Date(b.date));
-    let complete = 0;
-    let pending = 0;
+  const searchEl = document.getElementById("search");
+  const filter = searchEl ? searchEl.value.toLowerCase() : "";
 
-    chore.forEach((chore, i) => {
-        if (!chore.description.toLowerCase().includes(filter))
-            return;
+  chore.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        const li = document.createElement("li");
-        li.className = chore.complete ? "completada" : "";
+  let complete = 0;
+  let pending = 0;
 
-        const span = document.createElement("span");
-        span.textContent = `${chore.date}-${chore.description}`;
+  chore.forEach((item, i) => {
+    if (!item.description.toLowerCase().includes(filter)) return;
 
-        const actions = document.createElement("div");
-        actions.className = "acciones";
+    const li = document.createElement("li");
+    li.className = item.complete ? "completada" : "";
 
-        const btnComplete = document.createElement("button");
-        btnComplete.textContent = "✅";
-        btnComplete.onclick = () => completechore(i);
+    const span = document.createElement("span");
+    span.textContent = `${item.date} - ${item.description}`;
 
-        const btndelete = document.createElement("button");
-        btndelete.textContent = "🗑️";
-        btndelete.onclick = () => deletechore(i);
+    const actions = document.createElement("div");
+    actions.className = "acciones";
 
-        actions.appendChild(btnComplete);
-        actions.appendChild(btndelete);
+    const btnComplete = document.createElement("button");
+    btnComplete.type = "button";
+    btnComplete.textContent = "✅";
+    btnComplete.addEventListener("click", () => completechore(i));
 
-        li.appendChild(span);
-        li.appendChild(actions);
+    const btnDelete = document.createElement("button");
+    btnDelete.type = "button";
+    btnDelete.textContent = "🗑️";
+    btnDelete.addEventListener("click", () => deletechore(i));
 
-        list.appendChild(li);
+    actions.appendChild(btnComplete);
+    actions.appendChild(btnDelete);
 
-        chore.complete ? complete++ : pending++;
-    });
+    li.appendChild(span);
+    li.appendChild(actions);
 
-    document.getElementById("contador").innerText = `Pendientes:${pending} | Completadas: ${complete}`;
+    list.appendChild(li);
+
+    item.complete ? complete++ : pending++;
+  });
+
+  const contadorEl = document.getElementById("contador"); 
+  if (contadorEl) {
+    contadorEl.innerText = `Pendientes: ${pending} | Completadas: ${complete}`;
+  }
 }
 
 function deletechore(i) {
-    chore.splice(i, 1);
-    saveChore();
-    showChore();
+  chore.splice(i, 1);
+  saveChore();
+  showChore();
 }
 
 function completechore(i) {
-    chore[i].complete = !chore[i].complete;
-    saveChore();
-    showChore();
+  if (!chore[i]) return;
+  chore[i].complete = !chore[i].complete;
+  saveChore();
+  showChore();
 }
+
+const searchInput = document.getElementById("search");
+if (searchInput) searchInput.addEventListener("input", showChore);
 
 showChore();
