@@ -1,4 +1,4 @@
-const tablero = document.getElementById('tablero');
+const tablero = document.getElementById('tablero').style.gridTemplateColumns = `repeat(${n}, 80px)`;
 const mensaje = document.getElementById('mensaje');
 let primeraCarta = null;
 let segundaCarta = null;
