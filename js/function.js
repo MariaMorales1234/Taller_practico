@@ -1,5 +1,5 @@
 let chore = JSON.parse(localStorage.getItem('chore')) || [];
-function aggtarea() {
+function aggTarea() {
     const date = document.getElementById("date").value;
     const description = document.getElementById("description").value.trim();
 
@@ -13,13 +13,13 @@ function aggtarea() {
 }
 
 function saveChore() {
-    localStorage.setItem("chore", JSON.stringify);
+    localStorage.setItem("chore", JSON.stringify(chore));
 }
 
 function showChore() {
     const list = document.getElementById("choreList");
     list.innerHTML = "";
-    const filter = document.getElementById("search").value.toLowerCase();
+    const filter = document.getElementById("search").addEventListener("input", showChore()).value.toLowerCase();
 
     chore.sort((a, b) => new Date(a.date) - new Date(b.date));
     let complete = 0;
@@ -29,16 +29,14 @@ function showChore() {
         if (!chore.description.toLowerCase().includes(filter))
             return;
 
-
         const li = document.createElement("li");
         li.className = chore.complete ? "completada" : "";
-
 
         const span = document.createElement("span");
         span.textContent = `${chore.date}-${chore.description}`;
 
         const actions = document.createElement("div");
-        actions.className = "Accciones";
+        actions.className = "acciones";
 
         const btnComplete = document.createElement("button");
         btnComplete.textContent = "✅";
@@ -58,7 +56,8 @@ function showChore() {
 
         chore.complete ? complete++ : pending++;
     });
-    document.getElementById("Contador").innerText = `Pendientes:${pending} | Completadas: ${complete}`;
+
+    document.getElementById("contador").innerText = `Pendientes:${pending} | Completadas: ${complete}`;
 }
 
 function deletechore(i) {

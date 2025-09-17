@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Lista de Tareas diarias</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/funtion.js"></script>
 </head>
 <body>
     <div class="Titulo">
@@ -14,19 +13,22 @@
         <div class="container">
             <div class="Lista">
                 <h2>Mis tareas</h2>
-                <input type="text" id="Buscar" placeholder="Busque tareas...">
-                <ul id="Lista-tarea"></ul>
+                <input type="text" id="search" placeholder="Busque tareas...">
+                <ul id="choreList"></ul>
+            </div>
+            <div id="contador">
+                <h2>Tareas</h2>
             </div>
         </div>
         <div class="container">
             <form>
                 <h2>Ingrese una nueva tarea</h2>
-                <input type="date" id="fecha">
-                <textarea id="descripcion" placeholder="Descripcion de la tarea..."></textarea>
-                <button onclick="agregarTarea()">Agregar</button>
+                <input type="date" id="date">
+                <textarea id="description" placeholder="Descripcion de la tarea..."></textarea>
+                <button type="button" onclick="aggTarea()">Agregar</button>
             </form>
         </div>
     </div>
-    <script src="js/funtion.js"></script>
+    <script src="js/function.js"></script>
 </body>
 </html>
