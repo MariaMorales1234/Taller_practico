@@ -33,7 +33,7 @@ function iniciarJuego(tamaño){
 }
 
 function voltearCarta(carta, src){
-    if (bloquear || carta.classList.contains('voletada')) return;
+    if (bloquear || carta.classList.contains('volteada')) return;
     carta.classList.add('volteada');
     if (!primeraCarta){
         primeraCarta = {carta, src};
@@ -46,7 +46,7 @@ function voltearCarta(carta, src){
             segundaCarta = null;
             bloquear = false;
             if(paresEncontrados===paresTotales){
-                mensaje.textContent = "¡felecidades ganaste en un tablero " + (Math.sqrt(paresTotales*2)) + "x" + (Math.sqrt(paresTotales*2)) + "!";
+                mensaje.textContent = "¡Felicidades, ganaste en un tablero!" + (Math.sqrt(paresTotales*2)) + "x" + (Math.sqrt(paresTotales*2)) + "!";
             }
         }else{
             setTimeout(()=>{
