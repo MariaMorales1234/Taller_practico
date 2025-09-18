@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
- <header>
+ 
     <h1>AHORCADO</h1>
-    <p>¡Prueba tu intuición y conocimiento en el lenguaje; aprovecha las oportunidades para ganar!🎮</p>
-  </header>
+    <p>¡Prueba tu intuición y aprovecha
+        las oportunidades para ganar!</p>
+    <div class="btn-play">
+        <button onclick="play">Jugar</button>
+    </div>
     <section id="game">
         <div id="word-cont" aria-label="hidden_word">
         </div>
@@ -26,7 +29,7 @@
         </div>
 
         <div id="score">
-            <h2>¡MARCADOR!✨✨</h2>
+            <h2>¡MARCADOR!</h2>
             <p>Victorias: <span id="win">0</span></p>
             <p>Derrotas: <span id="loser">0</span></p>
         </div>
