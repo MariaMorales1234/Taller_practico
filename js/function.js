@@ -1,6 +1,6 @@
 const palabras = ["JAVASCRIPT", "PROGRAMACION", "JUEGO", "GUITARRA", "MANZANA", "AJOLOTE", "COLOMBIA", "GITHUB", "FRONTEND"];
 const maxErrores = 6;
-const dibujo = ["img/1.png", "img/2.png","img/3.png", "img/4.png", "img/5.png", "img/6.png"];
+const dibujo = ["1.png", "2.png","3.png", "4.png", "5.png", "6.png"];
 
 let seleccionarPalabra = "";
 let palabraOculta = "";
