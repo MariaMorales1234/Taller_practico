@@ -52,15 +52,3 @@ body{
     min-height: 100vh;
     text-align: center; 
 }
-
-.casilla {
-    display: inline-block;
-    width: 40px;
-    height: 50px;
-    margin: 5px;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 3px solid white; 
-    color: white; 
-}
