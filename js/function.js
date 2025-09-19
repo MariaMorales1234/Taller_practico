@@ -1,11 +1,11 @@
-const tablero = document.getElementById('tablero').style.gridTemplateColumns = `repeat(${n}, 80px)`;
+const tablero = document.getElementById('tablero');
 const mensaje = document.getElementById('mensaje');
 let primeraCarta = null;
 let segundaCarta = null;
 let bloquear = false;
 let paresEncontrados = 0;
 let paresTotales = 0;
-const imagenesDisponibles = {};
+const imagenesDisponibles = [];
 
 function iniciarJuego(tamaño){
     tablero.innerHTML = "";
