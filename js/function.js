@@ -69,6 +69,7 @@ function seleccionarLetra(letra, btn) {
         erroresTexto.textContent = `Errores: ${errores}/${maxErrores}`;
 
         if (errores <= maxErrores) {
+            contenedorDibujo.innerHTML = "";
             const img = document.createElement("img");
             img.src = `img/${dibujo[errores - 1]}`;
             img.alt = "Parte del ahorcado";
