@@ -1,27 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
-h1{
-    
+
+h1{ 
     font-family: "Silkscreen", sans-serif;
-    font-size: 150px;
+    font-size: 100px;
     color: rgb(4, 54, 25);
-    align-items: center;
     display: inline-block;
     text-align: center;
-    border: 2px, solid;
+    border: 2px solid;
     background-color: rgba(218, 206, 191, 0.384);
     margin: 0;
 }  
+
 p{
     font-family: "Silkscreen", sans-serif;
     font-size: 25px;
     color: #fff;
     margin-top: 60px;
 }
+
 .btn-play {
     margin-bottom: 25px;
     display: flex;
     gap: 15px;
 }
+
 .btn-play button {
     background: #978a8ab4;
     color: #ffffff;
@@ -31,18 +33,22 @@ p{
     font-family: "Silkscreen", sans-serif;
     cursor: pointer;
 }
+
 .btn-play button:hover {
     background-color: #e0dadac9;  
     color: black;
 }
+
 .btn-play button:active {
-    background-color: rgb(255, 255, 255); /* color mientras presionas */
+    background-color: rgb(255, 255, 255);
     transform:scale(0.90);
     color: rgb(4, 54, 25);
 }
+
 body{
     background-image: url(../img/fond.png);
     background-repeat: no-repeat;
+    background-size: cover;
     background-color: rgba(0,0,0,0.5);
     background-blend-mode: darken; 
     display: flex;
@@ -51,4 +57,46 @@ body{
     align-items: center;
     min-height: 100vh;
     text-align: center; 
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#game, #infor {
+    flex: 1;
+    border: 2px solid #444;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+}
+
+#game {
+    color: white;
+    font-size: 30px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#mensaje {
+    font-size: 24px;
+    font-family: "Silkscreen", sans-serif;
+    color: yellow;
+}
+
+#infor {
+    color:white;
+    font-size: 30px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#history {
+    color:white;
+    font-size: 20px;
+    font-family: "Silkscreen", sans-serif;
 }

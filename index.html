@@ -7,38 +7,41 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
- 
     <h1>AHORCADO</h1>
-    <p>¡Prueba tu intuición y aprovecha
-        las oportunidades para ganar!</p>
+    <p>¡Prueba tu intuición y aprovecha las oportunidades para ganar!</p>
     <div class="btn-play">
         <button onclick="play">Jugar</button>
     </div>
-    <section id="game">
-        <div id="word-cont" aria-label="hidden_word">
-        </div>
-        <div id="letters" aria-label="Selection word">
-        </div>
-        <div id="draw">
-        </div>
-    </section>
-    <aside id="infor">
-        <div id="usedLetters">
+    <div class="contenedor">
+        <section id="game">
+            <div id="draw"></div>
+            <br><br>
+            <div id="word-cont" aria-label="hidden_word"></div>
+            <br>
+            <div id="letters" aria-label="Selection word"></div>
+            <div id="errores"></div>
+            <br>
+            <div id="usedLetters">
+            <div id="mensaje"></div>
             <h2>Letras usadas</h2>
             <p id="list">_</p>
         </div>
+        </section>
 
+    <aside id="infor">
         <div id="score">
             <h2>¡MARCADOR!</h2>
             <p>Victorias: <span id="win">0</span></p>
             <p>Derrotas: <span id="loser">0</span></p>
         </div>
-    </aside>
+    <br><br>
     <section id="history">
         <h2>Historial</h2>
         <ul id="game_history">
         </ul>
     </section>
+    </aside>
+    </div>
     <script src="js/function.js"></script>
 </body>
 </html>
