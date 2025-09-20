@@ -56,9 +56,11 @@ function voltearCarta(carta, src){
     }else if (!segundaCarta){
         segundaCarta = {carta, src};
         bloquear = true;
-        intentos ++;
+        intentos++;
         if (primeraCarta.src === segundaCarta.src){
             paresEncontrados++;
+            primeraCarta.carta.classList.remove("acertada");
+            segundaCarta.carta.classList.remove("acertada");
             primeraCarta = null;
             segundaCarta = null;
             bloquear = false;
@@ -77,26 +79,27 @@ function voltearCarta(carta, src){
     }
 }
  function actualizarTiempo(){
-    const tiempoActual = Math.floor((Date.now() - tiempoInicio)/100);
+    const tiempoActual = Math.floor((Date.now() - tiempoInicio)/1000);
     mensaje.textContent = `tiempo: ${tiempoActual}s | intentos: ${intentos}`;
  }
 
  function finalizarJuego(){
     clearInterval(temporizador);
     const tiempoFinal = Math.floor((Date.now() - tiempoInicio)/1000);
-    mensaje.textContent = `¡Felicidades, ganaste en un tablero ${Math.sqrt(paresTotales*2)}x${Math.sqrt(paresTotales*2)}`;
-    let mejorTiempo = localStorage.getItem("mejorTiempo");
-    let menorIntentos = localStorage.getItem("menorIntentos");
+    mensaje.innerHTML = `¡Felicidades, ganaste en un tablero ${Math.sqrt(paresTotales*2)}x${Math.sqrt(paresTotales*2)}!<br>`;
+    mensaje.innerHTML += `\nTiempo final: ${tiempoFinal}s | Intentos: ${intentos}<br>`;
+    let mejorTiempo = parseInt(localStorage.getItem("mejorTiempo"));
+    let menorIntentos = parseInt(localStorage.getItem("menorIntentos"));
     if (!mejorTiempo || tiempoFinal < mejorTiempo){
         localStorage.setItem("mejorTiempo", tiempoFinal);
-        mensaje.textContent += `|Nuev record de tiempo: ${tiempoFinal}s`;
+        mensaje.innerHTML+= `Nuevo record de tiempo: ${tiempoFinal}s<br>`;
     }else{
-        mensaje.textContent = `|Mejor tiempo: ${mejorTiempo}s`;
+        mensaje.innerHTML += `| Mejor tiempo: ${mejorTiempo}s<br>`;
     }
     if (!menorIntentos || intentos < menorIntentos){
-        localStorage.setItem("memorIntentos", intentos);
-        mensaje.textContent += `|Nuevo record de intentos: ${intentos}s`;
+        localStorage.setItem("menorIntentos", intentos);
+        mensaje.innerHTML += `| Nuevo record de intentos: ${intentos}<br>`;
     }else{
-        mensaje.textContent = `|Menor numero de intentos: ${menorIntentos}s`;
+        mensaje.innerHTML += `| Menor numero de intentos: ${menorIntentos}<br>`;
     }
  }
